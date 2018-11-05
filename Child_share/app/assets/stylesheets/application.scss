@@ -1,0 +1,198 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *  
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ @import "about";
+ */
+@import "bootstrap";
+@import "welcome";
+@import "about";
+
+body { 
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: #f5f6f7;
+}
+
+p {
+    font-size: 16px;
+}
+
+.margin {
+    margin-bottom: 45px;
+}
+
+.padding30 {
+    padding: 0 30px;
+}
+
+.space {
+    padding: 80px 0;
+}
+
+.space2 {
+    padding: 100px 0;
+}
+
+.restraint {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.small-restraint {
+    max-width: 400px;
+    padding-top: 70px;
+    margin: 0 auto;
+}
+
+.hundyp {
+    width: 100%;
+}
+
+.fifty {
+    width: 50%;
+}
+
+.dark-blue a:link {
+    color: #190d46;
+}
+
+.op25 {
+    opacity: .75;
+}
+
+.h300 {
+    height: 300px;
+}
+
+.front {
+    background-color: black;
+    color: white;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    opacity: 0.5;
+}
+
+.pic {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;  
+}
+
+.bg-welcome {
+    background-image: url("https://www.abcgreatbeginnings.com/wp-content/uploads/2016/08/home-slide1-compressor-2560x1316.jpg");
+    color: black;
+}
+
+.bg-post {
+    background-image: url("https://www.gannett-cdn.com/-mm-/c4d76ed0500c5c05dea069b524abea38887fa9dd/c=0-3-834-474/local/-/media/2015/10/01/USATODAY/USATODAY/635792870135354651-mailkid.JPG?width=3200&height=1680&fit=crop");
+    color: black;
+}
+
+.bg-sit {
+    background-image: url("https://timedotcom.files.wordpress.com/2016/02/161802_em_babysitters.jpg");
+    color: black;
+}
+
+.bg-req {
+    background-image: url("https://www.pangeare.com/blog/wp-content/uploads/sites/1984/2017/06/wpid-6-free-and-cheap-date-night-ideas-at-home.jpg");
+    color: black;
+}
+
+.bg-showoff {
+    background-image: url("http://meadowsliving.ca/wp-content/uploads/2018/02/23550868_10155993810899470_5551578214684932185_o.jpg");
+    color: black;
+}
+
+.bg-showreq {
+    background-image: url("https://www.stopsportsinjuries.org/images/STOP/YouthSportsRunning.jpg");
+    color: black;
+}
+
+.bg-bookoff {
+    background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/MPaEbz-/parents-and-kids-sitting-on-the-grass-and-playing-cards_vjp54hqzm__F0000.png");
+    color: black;
+}
+
+.bg-bookreq {
+    background-image: url("http://giballito.sites.caxton.co.za/wp-content/uploads/sites/102/2017/02/Valentines-Day-Craft-Bouquet-of-flowers-5.jpg");
+    color: black;
+}
+
+.bg-signin {
+    background-image: url("https://s3.amazonaws.com/lodcf/wp-content/uploads/2017/04/09113032/kid-writing-letter-today-150630-stock-tease_bfbb456ad27f219436911fb42df0b528.jpg");
+    color: black;
+}
+
+.bg-signup {
+    background-image: url("https://www.additudemag.com/wp-content/uploads/2016/11/7_3-School_Organize_9-tips-for-using-school-planner_Slideshow-7_kid-writing-notebook-ts_526564902.jpg");
+    color: black;
+}
+
+.bg-sitter {
+    background-image: url("https://s-i.huffpost.com/gen/1378401/images/o-BABYSITTER-facebook.jpg");
+    color: black;
+}
+
+.bg-nositter {
+    background-image: url("https://www.springfieldymca.org/wp-content/uploads/2016/10/DSC_7472_hr.jpg");
+    color: black;
+}
+
+.bg-review {
+    background-image: url("https://www.springfieldymca.org/wp-content/uploads/2016/10/DSC_7472_hr.jpg");
+    color: black;
+}
+
+.bg1 {
+    background-color: #1abc9c;
+    color: #ffffff;
+}
+
+.bg2 {
+    background-color: #44a2d8;
+    color: #1b2c3f;
+}
+
+.bg3 {
+    background-color: #1bb0ca;
+    color: #491921;
+}
+
+.bg4 {
+    background-color: #13265a;
+    color: #b4deeb;
+}
+
+.bg5 {
+    background-color: #fc5d2d;
+    color: #092927;
+}
+
+.red {
+    background: #f06;
+    background: linear-gradient(45deg, #e07919, #df276d),linear-gradient(142deg, transparent, white),linear-gradient(108deg, red, transparent);
+    opacity: 0.4;
+}
+
+.green {
+    background: rgb(15, 22, 88);
+    background: linear-gradient(45deg, #0a6b53, #e9d14c),linear-gradient(142deg, transparent, white),linear-gradient(108deg, red, transparent);
+    opacity: 0.9;
+}
+
+.blue {
+    background: #f06;
+    background: linear-gradient(45deg, #6519e0, #9ba5dd),linear-gradient(142deg, transparent, white),linear-gradient(108deg, red, transparent);
+    opacity: 0.9;
+}

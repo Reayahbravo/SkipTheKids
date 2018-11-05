@@ -1,0 +1,52 @@
+<div class="bg-signup pic">
+  <div class="container-fluid front space text-center">
+    <div class="restraint">
+      <h1>Sign Up</h1> 
+    </div>
+  </div>
+</div>
+
+
+<%= simple_form_for @user do |f| %>
+  <div class="bg3">
+    <div class="container-fluid front space text-center">
+      <div class="restraint">
+        <%= f.input :first_name, required: false, hint: 'required' %>
+        <%= f.input :last_name, required: false, hint: 'required' %>
+        <%= f.input :alias, required: false, hint: 'website username' %>
+        <%= f.input :location, required: false, hint: 'general location area' %>
+        <%= f.input :email, required: false, hint: 'required' %>
+        <%= f.input :password, required: false, hint: 'required' %>
+        <%= f.input :password_confirmation, required: false, hint: 'required' %>
+        <%= f.input :parent, as: :select, as: :radio_buttons  %>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg3">
+    <div class="container-fluid front space blue text-center">
+      <div class="restraint">
+        <h2>Add Child</h2>
+        <div id='children'>
+          <% f.simple_fields_for(:children, html: { class: 'form-inline' }) do |child| %>
+            <%= render 'child_fields', f: child %>
+          <% end %>
+          <div class='links'>
+            <%= link_to_add_association 'add child', f, :children %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="bg2">
+    <div class="container-fluid space text-center">
+      <div class="restraint">
+        <%= f.submit 'Sign Up', class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+
+  
+<% end %>

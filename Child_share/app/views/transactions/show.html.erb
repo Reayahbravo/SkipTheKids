@@ -1,0 +1,35 @@
+
+
+
+<ul>
+    <% @transactions.each do [@user.offer, @transaction] |transaction| %>
+        <li>
+        <%= link_to 'offer from: ' + offer.user.alias + ' ' + offer.proposed_from.to_s, 
+        offer_path(offer.id),
+        class: "Job Post Offer" %>
+          <br />
+            <small>
+                Posted <%= time_ago_in_words(offer.proposed_from) %> ago
+            </small>
+
+        </li>
+    <% end %>
+</ul>
+
+<ul>
+    <% @transactions.each do [@user.request, @transaction] |transaction| %>
+        <li>
+        <%= link_to 'request from: ' + request.user.id + ' ' + request.proposed_from.to_s, 
+        request_path(offer.id),
+        class: "Job Post Request" %>
+          <br />
+            <small>
+                Posted <%= time_ago_in_words(request.proposed_from) %> ago
+            </small>
+
+        </li>
+    <% end %>
+</ul>
+
+
+

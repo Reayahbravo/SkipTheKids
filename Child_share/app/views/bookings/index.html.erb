@@ -1,0 +1,121 @@
+<div class="bg-post pic">
+    <div class="container-fluid front space text-center">
+        <div class="restraint">
+            <h1>Postings Central</h2>
+        </div>
+    </div>
+</div>
+
+<div class="bg5 op25">
+    <div class="container-fluid green space text-center">
+        <div class="restraint">
+            <h2 class="underline dark-blue"><%= link_to "Post An Offer To Watch A Child", new_offer_path %></h2>
+        </div>
+    </div>
+</div
+
+<div class="bg2">
+    <div class="container-fluid blue space text-center">
+        <div class="restraint">
+            <h2 class="underline dark-blue"><%= link_to "Post A Request For A Sitter", new_request_path %></h2>
+        </div>
+    </div>
+</div>
+
+<% if @offers.length > 0 %>
+    <div class="container-fluid space text-center text-black-50">
+        <div class="restraint">
+            <h2>Your Offers to Babysit</h2>
+        </div>
+    </div>
+    
+    <% @offers.each do |offer| %>
+        <div class="bg<%= (offer.id % 5) + 1 %>">
+            <div class="container-fluid space text-center text-black-50">
+                <div class="restraint">
+                    <%= link_to 'offer from: ' + offer.user.alias, 
+                    offer_path(offer.id),
+                    class: "Job Post Offer" %>
+                    <br />
+                    <%= offer.note %>
+                    <br />
+                    <small>
+                        Take Place <%= time_ago_in_words(offer.proposed_from) %> From Now
+                    </small>
+                </div>
+            </div>  
+        </div>
+    <% end %>
+<% end %>
+
+<% if @requests.length > 0 %>
+    <div class="container-fluid space text-center text-black-50">
+        <div class="restraint">
+            <h2>Your Requests for a Sitter</h2>
+        </div>
+    </div>
+    <% @requests.each do |request| %>
+        <div class="bg<%= (request.id % 5) + 1 %>">
+            <div class="container-fluid space text-center text-black-50">
+                <div class="restraint">
+                    <%= link_to 'request from: ' + request.user.alias + ' ' + request.proposed_from.to_s, 
+                    request_path(request.id),
+                    class: "Job Post Request" %>
+                    <br />
+                    <%= request.note %>
+                    <br />
+                    <small>
+                        Takes Place <%= time_ago_in_words(request.proposed_from) %> From Now
+                    </small>
+                </div>
+            </div>
+        </div> 
+    <% end %>
+<% end %>
+    
+<% if @offer_bookings.length > 0 %>
+    <div class="container-fluid space text-center text-black-50">
+        <div class="restraint">
+            <h2>You've responded to sitters</h2>
+        </div>
+    </div>    
+    <% if @offer_bookings.kind_of?(Array) %>
+        <% @offer_bookings.each do |offer| %>
+            <div class="bg<%= (offer.id % 5) + 1 %>">
+                <div class="container-fluid space text-center text-black-50">
+                    <div class="restraint">
+                        <%= link_to 'offer from: ' + offer.user.alias, 
+                        offer_path(offer.id),
+                        class: "Job Post Offer" %>
+                        <br />
+                        <%= offer.note %>
+                        <br />
+                        <small>
+                            Takes Place <%= time_ago_in_words(offer.proposed_from) %> From Now
+                        </small>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+<% end %>
+
+<% if @request_bookings.length > 0 %>
+    <h2>You've responded to requests for sitters</h2>
+    <% if @request_bookings.kind_of?(Array) %>
+        <% @request_bookings.each do |offer| %>
+            <%= link_to 'offer from: ' + offer.user.alias, 
+            offer_path(offer.id),
+            class: "Job Post Offer" %>
+            <br />
+                <%= offer.note %>
+            <br />
+                <small>
+                    Take Place <%= time_ago_in_words(offer.proposed_from) %> From Now
+                </small>
+                <br>
+                <br>
+            <p>Job Post Status:<%=offer.aasm_state%></p>
+        <% end %>
+    <% end %>
+<% end %>

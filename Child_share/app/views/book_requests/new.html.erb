@@ -1,0 +1,30 @@
+<div class="bg-bookoff pic">
+    <div class="container-fluid front space text-center">
+        <div class="restraint">
+            <h1>Offer to sit</h1>
+        </div>
+    </div>
+</div>
+
+
+
+<%= simple_form_for @book_request do |f| %>
+    <div class="bg4">
+        <div class="container-fluid  space text-center">
+            <div class="restraint">
+                <%= f.input :child_count, required: false, hint: 'required' %>
+                <%= f.input :note, required: false, hint: 'required' %>
+                <input type="hidden" name="book_request[request]" id="book_request_request" value="<%= @request.id %>">
+                <input type="hidden" name="book_request[status]" id="book_request_status" value="request">
+            </div>
+        </div>
+    </div>
+
+    <div class="bg2">
+        <div class="container-fluid space text-center">
+            <div class="restraint">
+                <%= f.submit 'Offer to sit', class: 'btn btn-primary' %>
+            </div>
+        </div>
+    </div>
+<% end %>

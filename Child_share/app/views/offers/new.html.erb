@@ -1,0 +1,34 @@
+<div class="bg-sit pic">
+  <div class="container-fluid front space text-center">
+    <div class="restraint">
+      <h1>Offer To Watch Child</h1>
+    </div>
+  </div>
+</div>
+
+
+<% if user_signed_in? && can?(:post, @offer) && @offer.post?  %>
+  <%= link_to 'Post', offer_bookings_path(@offer), method: :post %>
+<% end %>
+
+<%= simple_form_for @offer do |f| %>
+  <div class="bg-4">
+    <div class="container-fluid front space blue text-center">
+      <div class="restraint">
+        <%= f.input :proposed_from, required: false, hint: 'required' %>
+        <%= f.input :proposed_to, required: false, hint: 'required' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-2">
+    <div class="container-fluid front space blue text-center">
+      <div class="restraint">
+        <%= f.input :max_child_number, required: false, hint: 'required' %>
+        <%= f.input :note, required: false, hint: 'required' %>
+        <%= f.submit 'Post your Offer', class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+    
+<% end %>

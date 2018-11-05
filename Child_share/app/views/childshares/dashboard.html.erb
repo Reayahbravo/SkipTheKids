@@ -1,0 +1,61 @@
+<div class="fifty float-left">
+    <div class="bg-sitter pic">
+        <div class="container-fluid front space text-center">
+            <div class="restraint">
+                <h2>Babysitters</h2>
+            </div>
+        </div>
+    </div>
+    <% @offers.each do |offer| %>
+        <div class="bg<%= (offer.id % 5) + 1 %>">
+            <div class="container-fluid space text-center">
+                <div class="restraint padding30">
+                    <%= link_to 'offer from: ' + offer.user.alias, 
+                    offer_path(offer.id),
+                    class: "Job Post Offer" %>
+                    <br />
+                    <%= offer.note %>
+                    <br />
+
+                    <small>
+                        Set for <%= offer.proposed_from.month %>/<%= offer.proposed_from.day %>/<%= offer.proposed_from.year %> (m/d/y) at <%= offer.proposed_from.hour %>:<%= offer.proposed_from.min %>
+                        <br>
+                        Takes Place <%= time_ago_in_words(offer.proposed_from) %> From Now
+                    </small>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
+
+
+<div class="fifty float-right">
+    <div class="bg-nositter pic">
+        <div class="container-fluid front space text-center">
+            <div class="restraint">
+                <h2>Looking for babysitter</h2>
+            </div>
+        </div>
+    </div>
+    <% @requests.each do |request| %>
+        <div class="bg<%= (request.id % 5) + 1 %>">
+            <div class="container-fluid space text-center">
+                <div class="restraint padding30">
+                    <%= link_to 'request from: ' + request.user.alias, 
+                    request_path(request.id),
+                    class: "Job Post Request" %>
+                    <br />
+                    <%= request.note %>
+                    <br />
+
+                    <small>
+                    Set for <%= request.proposed_from.month %>/<%= request.proposed_from.day %>/<%= request.proposed_from.year %> (m/d/y) at <%= request.proposed_from.hour %>:<%= request.proposed_from.min %>
+                    <br>
+                        Takes Place <%= time_ago_in_words(request.proposed_from) %> From Now
+                    </small>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
+

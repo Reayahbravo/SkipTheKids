@@ -1,0 +1,102 @@
+<div class="bg-showoff pic">
+    <div class="container-fluid front space text-center">
+        <div class="restraint">
+            <% if @offer.user == current_user %>
+                <h2>Review your offer to be a sitter</h2>
+            <% else %>
+                <h2>Request this sitter to watch your child</h2>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<div class="bg3">
+    <div class="container-fluid front space blue text-center">
+        <div class="restraint">
+            Offer details:<br>
+            User: <%= @alias %><br>
+            Available slots for children: <%= @space %><br>
+            Note: <%= @offer.note %>
+        </div>
+    </div>
+</div>
+
+
+    
+<% if @your_booking %>
+    <div class="bg3">
+        <div class="container-fluid front space blue text-center">
+            <div class="restraint">
+                You requested <%= @alias %> to watch <%= @your_booking.child_count %> child.<br>
+                Status: <%= @your_booking.status %><br>
+                <%= simple_form_for @offer do |f| %>
+                    <input type="hidden" name="book_offer[child_count]" id="book_offer_child_count" value="<%= @your_booking.child_count %>">
+                    <input type="hidden" name="book_offer[user]" id="book_offer_user" value="<%= @your_booking.user %>">
+                    <input type="hidden" name="book_offer[note]" id="book_offer_note" value="<%= @your_booking.note %>">
+                    <input type="hidden" name="book_offer[offer]" id="book_offer_offer" value="<%= @your_booking.offer %>">
+                    <input type="hidden" name="book_offer[status]" id="book_offer_status" value="request">
+                    <input type="hidden" name="book_offer[status]" id="book_offer_status" value="canceled">
+                    <%= f.submit 'Cancel', class: 'btn btn-primary' %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+<% end %>
+
+
+<% if @others_offers && @offer.user == current_user %>
+    <% if @others_offers.kind_of?(Array) %>
+        <% @others_offers.each do |others_offer| %>
+            <div class="bg<%= (other_offers.id % 5) + 1 %>"
+                <div class="container-fluid front space red text-center">
+                    <div class="restraint">
+                        You have been requested to watch <%= others_offer.child_count %> child.<br>
+                        By user: <%= others_offer.user.alias %><br>
+                        Status: <%= others_offer.status %>        
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    <% else %>
+        <div class="bg5"
+            <div class="container-fluid front space red text-center">
+                <div class="restraint">
+                    You have been requested to watch <%= @others_offers.child_count %> child.<br>
+                    By user: <%= @others_offers.user.alias %><br>
+                    Status: <%= @others_offers.status %><br>
+                    <%= simple_form_for @offer do |f| %>
+                        <input type="hidden" name="book_offer[id]" id="book_offer_id" value="<%= @others_offers.id %>">
+                        <input type="hidden" name="book_offer[status]" id="book_offer_status" value="canceled">
+                        <%= f.submit 'Cancel', class: 'btn btn-primary' %>
+                        <%= f.submit 'Confirm', class: 'btn btn-primary' %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+<% end %>
+
+<div class="bg1">
+    <div class="container-fluid space text-center dark-blue">
+        <div class="restraint">
+            <% if current_user != @offer.user && !@has_booking %>
+                <%= link_to("Add a Child", offer_counter_request_path(@offer), :offer => @offer) %>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid space text-center text-black-50">
+    <div class="restraint">
+        <h3>Reviews</h3>
+    </div>
+</div>
+
+<div class="bg2">
+    <div class="container-fluid front space blue text-center">
+        <div class="restraint">
+            My 8 year old loved this sitter <br>
+            Rating: 10 out of 10
+        </div>
+    </div>
+</div>

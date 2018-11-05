@@ -1,0 +1,24 @@
+<div class="bg-review pic">
+<div class="container-fluid front space text-center">
+<div class="restraint">
+  <h1>Create a Review<h1>
+</div>
+</div>
+</div>
+
+
+
+
+
+<%= simple_form_for [@review] do |f| %>
+  <div class="bg4">
+  <div class="container-fluid  space text-center">
+  <div class="restraint">
+    <%= f.input :rating %>
+    <%= f.input :body, required: false, hint: 'required' %>
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+  </div>
+  </div>
+<% end %>
+  

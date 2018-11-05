@@ -1,0 +1,23 @@
+<h1>Hi there</h1>
+
+<%= simple_form_for [@user, @transaction] do |f| %>
+    <%= f.input :proposed_to, required: false, hint: 'required' %>
+    <%= f.input :actual_from, required: false, hint: 'required' %>
+    <%= f.input :actual_to, required: false, hint: 'required' %>
+
+    <%= f.submit "Sign In", class: 'btn btn-primary' %>
+<% end %>
+
+
+This is the account edit page. this is where the user sees their account info and then edits or adds a child.
+<p> edit_transaction_path	GET	/transactions/:id/edit(.:format)	transactions#edit </p>
+
+Changing the route in the transaction/index page breaks the 
+entire transaction index page with links. right now that link 
+does nothing
+
+<p>this is the error message:
+ActionController::UrlGenerationError in Transactions#index ~ 
+No route matches {:action=>"edit", :controller=>"transactions"}, missing required keys: [:id] ~ 
+<%= link_to "Edit Account", edit_transaction_path %> ~
+

@@ -1,0 +1,13 @@
+<h1>Request a Sitter</h1>
+
+
+<%= simple_form_for @booking do |f| %>
+    <%= f.input :offer_id, required: false, hint: 'required' %>
+    <%= f.input :user_id, required: false, hint: 'required' %>
+    <%= f.input :child_id, required: false, hint: 'required' %>
+
+    <%= f.input :note, required: false, hint: 'required' %>
+    <%= f.input :status, required: false, hint: 'required' %>
+    <%= f.submit 'Sign Up', class: 'btn btn-primary' %>
+  
+<% end %>

@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20180815195530_remove_index.rb

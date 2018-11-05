@@ -1,0 +1,52 @@
+<div class="bg-showreq pic">
+    <div class="container-fluid front space text-center">
+        <div class="restraint">
+            <% if @request.user == current_user %>
+                <h2>Review your request for a sitter</h2>
+            <% else %>
+                <h2>Submit an offer to be a sitter for this person</h2>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<div class="bg2 ">
+    <div class="container-fluid front space blue text-center">
+        <div class="restraint">
+            Request details:<br>
+            User: <%= @alias %><br>
+            <% if @request.child_number == 1 %>
+                For <%= @request.child_number %> child<br>
+            <% else %>
+                For <%= @request.child_number %> children<br>
+            <% end %>
+            Note: <%= @request.note %>
+        </div>
+    </div>
+</div>
+
+<div class="bg1">
+    <div class="container-fluid space text-center dark-blue">
+        <div class="restraint">
+            <% if current_user != @request.user && !@has_booking %>
+                <%= link_to("Add a Child", new_book_request_path(@request), :request => @request) %>
+            <% end %>
+        </div>
+    </div>
+</div>
+    
+<div class="container-fluid space text-center text-black-50">
+    <div class="restraint">
+        <h3>Reviews</h3>
+    </div>
+</div>
+
+<div class="bg2">
+    <div class="container-fluid front space blue text-center">
+        <div class="restraint">
+            My 8 year old loved this sitter <br>
+            Rating: 10 out of 10
+        </div>
+    </div>
+</div>
+

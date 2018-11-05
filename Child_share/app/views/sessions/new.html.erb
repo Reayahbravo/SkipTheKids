@@ -1,0 +1,27 @@
+<div class="bg-signin pic">
+<div class="container-fluid front space text-center">
+<div class="restraint">
+    <h1>Sign In</h1>
+</div>
+</div>
+</div>
+
+
+<%= simple_form_for :session, url: session_path do |f| %>
+    <div class="bg3">
+    <div class="container-fluid front space text-center">
+    <div class="restraint">
+        <%= f.input :email, required: false, hint: 'required' %>
+        <%= f.input :password, required: false, hint: 'required' %>
+    </div>
+    </div>
+    </div>
+
+    <div class="bg2">
+    <div class="container-fluid space text-center">
+    <div class="restraint">
+        <%= f.submit "Sign In", class: 'btn btn-primary' %>
+    </div>
+    </div>
+    </div>
+<% end %>

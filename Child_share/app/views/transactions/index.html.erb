@@ -1,0 +1,43 @@
+<h1>Your Account Details</h1>
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active"
+        <%= link_to "View Account", transactions_path %>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link"
+        <%= link_to "Edit Account", transactions_path %>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link"
+        <%= link_to "Reviews Received", reviews_path %>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" 
+        <%= link_to "Post A Review", new_review_path %>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" 
+        <%= link_to "Offer History", offers_path(@users, @offer) %>
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" 
+        <%= link_to "Request History", requests_path(@user, @request) %>
+        </a>
+    </li>
+</ul>
+
+This is the route for the account home page, which should be showing the user info, credit hours, and have an edit button(maybe, but if theres an edit button here to edit account deatails and *add a child*, then the edit tab should be removed)
+
+<p> transactions_path	GET	/transactions(.:format)	transactions#index </p>
